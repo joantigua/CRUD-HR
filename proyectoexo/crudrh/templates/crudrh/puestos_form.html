@@ -1,0 +1,15 @@
+{% extends 'crudrh/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  <form id = "create-form" action = "" method = "POST">
+    {% csrf_token %}
+    {{form}}
+
+    <input type = "submit" name = "Submit">
+  </form>
+
+{% endblock content %}
+
