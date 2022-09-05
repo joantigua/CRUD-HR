@@ -135,44 +135,40 @@ def createCandidatos(request):
   return render(request, 'crudrh/candidatos_form.html', context)
 
 
+@unauthenticated_user
 def loginPage(request):
-  if request.user.is_authenticated:
-    return redirect('http://127.0.0.1:8000/home')
-  else:
-    if request.method == "POST":
-      username = request.POST.get('username')
-      password = request.POST.get('password')
+  if request.method == "POST":
+    username = request.POST.get('username')
+    password = request.POST.get('password')
 
-      user = authenticate(request, username = username, password = password)
+    user = authenticate(request, username = username, password = password)
 
-      if user is not None:
-        login(request, user)
-        return redirect('http://127.0.0.1:8000/home')
-      else: 
-        messages.info(request, 'Username or Password is incorrect!')
+    if user is not None:
+      login(request, user)
+      return redirect('http://127.0.0.1:8000/home')
+    else: 
+      messages.info(request, 'Username or Password is incorrect!')
 
-    context = {}
-    return render(request, 'crudrh/login.html', context)
+  context = {}
+  return render(request, 'crudrh/login.html', context)
 
 
 def logoutUser(request):
   logout(request)
   return redirect('http://127.0.0.1:8000/login')
 
+@unauthenticated_user
 def registerPage(request):
-  if request.user.is_authenticated:
-    return redirect('http://127.0.0.1:8000/home')
-  else: 
-    form = CreateUserForm()
-    if request.method == "POST":
-      form = CreateUserForm(request.POST)
-      if form.is_valid():
-        form.save()
-        user = form.cleaned_data.get('username')
-        messages.success(request, "El usuario " + user + " ha sido creado!")
+  form = CreateUserForm()
+  if request.method == "POST":
+    form = CreateUserForm(request.POST)
+    if form.is_valid():
+      form.save()
+      user = form.cleaned_data.get('username')
+      messages.success(request, "El usuario " + user + " ha sido creado!")
 
-    context = {'form':form}
-    return render(request, 'crudrh/register.html', context)
+  context = {'form':form}
+  return render(request, 'crudrh/register.html', context)
 
 def userPage(request):
   context = {}
