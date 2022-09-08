@@ -12,11 +12,12 @@
     {% csrf_token %}
     <div class = "form-row">
       <div class = "form-group col-sm-6 col-md-4">
-        {{form.codigo_empleado|as_crispy_field}}
-        {{form.candidato|as_crispy_field}}
+        {{form.nombre_idioma|as_crispy_field}}
+        {{form.estado|as_crispy_field}}
       </div>
     </div>
-    <input type = "submit" value = "Crear" class = "btn btn-secondary">
+    <input type = "submit" value = "Actualizar"  class = "btn btn-secondary">
   </form>
 </div>
 {% endblock %}
+

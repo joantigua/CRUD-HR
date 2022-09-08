@@ -7,7 +7,8 @@
 		<div class="row">
 			<div class="col-md">
 				<div class="card card-body">
-					<h5>Empleados</h5> <td><a class="nav-link" href="http://127.0.0.1:8000/create_empleados">Crear<span class="sr-only">(current)</span></a></td>
+					<h5>Empleados</h5>
+					<td><a class="btn btn-success" href="http://127.0.0.1:8000/create_empleados">Crear<span class="sr-only">(current)</span></a></td>
 				</div>
 				<div class="card card-body">
 					<table class="table">
@@ -20,6 +21,8 @@
 							<tr>
 								<td>{{i.codigo_empleado}}</td>
 								<td>{{i.candidato}}</td>
+								<td><a class="btn btn-info" href= "http://127.0.0.1:8000/update_empleados/{{ i.id }}">Actualizar<span class="sr-only">(current)</span></a></td>
+								<td><a class="btn btn-danger" href="http://127.0.0.1:8000/delete_empleados/{{ i.id }}">Eliminar<span class="sr-only">(current)</span></a></td>
 							</tr>
 						{% endfor %}
 						

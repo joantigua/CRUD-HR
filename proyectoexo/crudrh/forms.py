@@ -10,6 +10,8 @@ class CandidatosForm(ModelForm):
       model = Candidatos
       fields = '__all__'
 
+      
+
 class EmpleadosForm(ModelForm):
     class Meta:
       model = Empleados

@@ -8,7 +8,7 @@
 			<div class="col-md">
 				<div class="card card-body">
 					<h5>Capacitaciones</h5>
-					<td><a class="nav-link" href="http://127.0.0.1:8000/create_capacitaciones">Crear<span class="sr-only">(current)</span></a></td>
+					<td><a class="btn btn-success" href="http://127.0.0.1:8000/create_capacitaciones">Crear<span class="sr-only">(current)</span></a></td>
 				</div>
 				<div class="card card-body">
 					<table class="table">
@@ -25,6 +25,8 @@
 								<td>{{i.nivel}}</td>
 								<td>{{i.institucion}}</td>
                 <td>{{i.fecha_inicio}} - {{i.fecha_final}}</td>
+								<td><a class="btn btn-info" href= "http://127.0.0.1:8000/update_capacitaciones/{{ i.id }}">Actualizar<span class="sr-only">(current)</span></a></td>
+								<td><a class="btn btn-danger" href="http://127.0.0.1:8000/delete_capacitaciones/{{ i.id }}">Eliminar<span class="sr-only">(current)</span></a></td>
 							</tr>
 						{% endfor %}
 						
